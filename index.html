@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Web Keuangan 🐵</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  #loginBox {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  #loginBox input {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 8px;
+  }
+  #loginBox button {
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  #easterEgg {
+    display: none;
+    margin-top: 20px;
+  }
+  #easterEgg img {
+    max-width: 200px;
+  }
+</style>
+</head>
+<body>
+
+<div id="loginBox">
+  <h2>Login Web Keuangan</h2>
+  <input type="text" placeholder="Username">
+  <input type="password" placeholder="Password">
+  <button id="loginBtn">Login</button>
+</div>
+
+<div id="easterEgg">
+  <h3>🐵 Surprise! Kamu ketemu monyet!</h3>
+  <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/monkey.png" alt="Monyet Lucu">
+  <audio id="monkeyAudio" src="https://raw.githubusercontent.com/yourusername/yourrepo/main/monkey.mp3"></audio>
+</div>
+
+<script>
+const loginBtn = document.getElementById('loginBtn');
+const loginBox = document.getElementById('loginBox');
+const easterEgg = document.getElementById('easterEgg');
+const monkeyAudio = document.getElementById('monkeyAudio');
+
+loginBtn.addEventListener('click', () => {
+  loginBox.style.display = 'none';
+  easterEgg.style.display = 'block';
+  monkeyAudio.play().catch(() => {
+    alert("Klik tombol play di audio untuk mendengar suara monyet 🐵");
+  });
+});
+</script>
+
+</body>
+</html>
