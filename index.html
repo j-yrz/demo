@@ -2,27 +2,53 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>keuangan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Easter Egg Monyet 🐵</title>
 <style>
   body {
+    margin: 0;
+    padding: 0;
+    background: #f0f8ff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #f0f0f0;
+    overflow: hidden;
+    font-size: 2rem;
   }
-  #monkey {
-    width: 200px;
-    animation: shake 0.5s infinite alternate;
+  .monyet {
+    position: absolute;
+    animation: goyang 1.5s infinite alternate;
+    cursor: pointer;
   }
-  @keyframes shake {
-    0% { transform: rotate(-15deg); }
-    50% { transform: rotate(15deg); }
-    100% { transform: rotate(-15deg); }
+  @keyframes goyang {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+    100% { transform: translateY(0) rotate(-10deg); }
   }
 </style>
 </head>
 <body>
-<img id="monkey" src="https://www.pngall.com/wp-content/uploads/4/Monkey-PNG-Image.png" alt="monyet goyang">
+
+<script>
+  const jumlahMonyet = 30; // banyak monyet
+  for(let i=0; i<jumlahMonyet; i++){
+    const m = document.createElement('div');
+    m.className = 'monyet';
+    m.textContent = '🐵';
+    m.style.left = Math.random() * 90 + 'vw';
+    m.style.top = Math.random() * 90 + 'vh';
+    m.style.fontSize = (20 + Math.random()*40) + 'px';
+    m.style.animationDuration = (1 + Math.random()*1.5) + 's';
+    document.body.appendChild(m);
+
+    // optional klik buat ngeganti posisi
+    m.addEventListener('click', () => {
+      m.style.left = Math.random() * 90 + 'vw';
+      m.style.top = Math.random() * 90 + 'vh';
+    });
+  }
+</script>
+
 </body>
 </html>
