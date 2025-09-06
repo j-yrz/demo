@@ -2,58 +2,27 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo Keuangan - Easter Egg Monyet 🐵</title>
+<title>keuangan</title>
 <style>
-  body { font-family: sans-serif; text-align: center; background: #f4f4f4; }
-  #loginBox, #easterEgg { margin-top: 100px; }
-  button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
-  #easterEgg img { width: 300px; margin-top: 20px; }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f0f0;
+  }
+  #monkey {
+    width: 200px;
+    animation: shake 0.5s infinite alternate;
+  }
+  @keyframes shake {
+    0% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+    100% { transform: rotate(-15deg); }
+  }
 </style>
 </head>
 <body>
-
-<div id="loginBox">
-  <h2>Login Demo</h2>
-  <button id="loginBtn">Login</button>
-</div>
-
-<div id="easterEgg" style="display:none;">
-  <h2>🐵 Surprise!</h2>
-  <img src="https://i.ibb.co/2n6F5bw/monyet.png" alt="Monyet">
-</div>
-
-<audio id="monkeyAudio" src="https://www.soundjay.com/animals/monkey-1.mp3" preload="auto"></audio>
-
-<script>
-const loginBtn = document.getElementById('loginBtn');
-const loginBox = document.getElementById('loginBox');
-const easterEgg = document.getElementById('easterEgg');
-const monkeyAudio = document.getElementById('monkeyAudio');
-
-loginBtn.addEventListener('click', () => {
-  loginBox.style.display = 'none';
-  easterEgg.style.display = 'block';
-
-  // coba autoplay audio
-  monkeyAudio.currentTime = 0;
-  const playPromise = monkeyAudio.play();
-
-  if (playPromise !== undefined) {
-    playPromise.catch(error => {
-      // browser blok autoplay → buat tombol play kecil
-      const btn = document.createElement('button');
-      btn.textContent = "Klik sini untuk suara monyet 🐵";
-      btn.style.marginTop = "10px";
-      easterEgg.appendChild(btn);
-      btn.addEventListener('click', () => {
-        monkeyAudio.play();
-        btn.remove();
-      });
-    });
-  }
-});
-</script>
-
+<img id="monkey" src="https://www.pngall.com/wp-content/uploads/4/Monkey-PNG-Image.png" alt="monyet goyang">
 </body>
 </html>
