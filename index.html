@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Keuangan Login</title>
+<style>
+    body { 
+        display: flex; justify-content: center; align-items: center; 
+        height: 100vh; margin: 0; font-family: sans-serif; 
+        flex-direction: column; background-color: #f0f0f0;
+    }
+    #loginForm { display: flex; flex-direction: column; gap: 10px; }
+    input { padding: 8px; border-radius: 6px; border: 1px solid #ccc; }
+    button { padding: 8px 16px; border: none; border-radius: 6px; background-color: #4caf50; color: white; cursor: pointer; }
+    #easterEgg { display: none; flex-direction: column; align-items: center; }
+    #easterEgg img { max-width: 300px; animation: bounce 1s infinite alternate; }
+    @keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-20px); } }
+</style>
+</head>
+<body>
+
+<div id="loginForm">
+    <h2>Login</h2>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+</div>
+
+<div id="easterEgg">
+    <img src="https://i.imgur.com/3cK9y8T.png" alt="Monyet Nakal">
+    <h1>Ooopss… kamu ketemu monyet 🐒</h1>
+</div>
+
+<script>
+const loginBtn = document.getElementById('loginBtn');
+const loginForm = document.getElementById('loginForm');
+const easterEgg = document.getElementById('easterEgg');
+
+const audio = new Audio("https://www.soundjay.com/animals/monkey-1.mp3");
+
+loginBtn.addEventListener('click', () => {
+    // sembunyikan login
+    loginForm.style.display = 'none';
+    // tampilkan easter egg
+    easterEgg.style.display = 'flex';
+    // mainkan suara
+    audio.play().catch(() => console.log("Klik tombol lagi kalau autoplay diblokir 😅"));
+});
+</script>
+
+</body>
+</html>
